@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: grey;
+    background-image: url(https://wallpapercave.com/wp/wp9451097.jpg);
+    background-repeat: no-repeat;
+}
+
+.wrapper {
+    width: min(600px,600px);
+    height: min(400px,400px);
+    border: none;
+    text-align: center;
+    align-content: center;
+    border-radius: 20px;
+
+    background: rgba(201, 201, 201, 0.15);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 20px;
+}
+
+button {
+    width: min(200px,200px);
+    height: min(60px,60px);
+    background: linear-gradient(360deg,rgb(255, 152, 255), rgb(240, 42, 240));
+    cursor: pointer;
+    border: 2 solid;
+    border-color: white;
+    border-radius: 10px;
+    margin-right: 20px;
+    color: white;
+}
