@@ -1,0 +1,107 @@
+:root {
+    --primary-color: #570b66;
+    --primary-light: rgb(139, 61, 146);
+    --accent-color: rgb(255, 47, 255);
+    --text-light: rgb(255, 255, 255);
+    --border-radius-sm: 10px;
+    --border-radius-md: 20px;
+    --border-radius-lg: 30px;
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+ 
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://wallpapercave.com/wp/wp9451097.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  .wrapper {
+    width: 700px;
+    height: 700px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--border-radius-md);
+    background: rgba(201, 201, 201, 0.15);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+  }
+  
+  .display {
+    text-align: center;
+    margin-top: 30px;
+    background-color: var(--primary-color);
+    width: 450px;
+    border: 2px solid var(--primary-light);
+    font-size: 35px;
+    border-radius: var(--border-radius-lg);
+    color: var(--text-light);
+    padding: 10px 0;
+  }
+  
+  .gen-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    margin-top: 150px;
+  }
+  
+  button {
+    background: linear-gradient(to bottom, rgb(255, 134, 209), var(--accent-color));
+    border: none;
+    border-radius: var(--border-radius-sm);
+    color: var(--text-light);
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+    transform: translateY(-5px);
+  }
+  
+  button:active {
+    opacity: 1;
+    transform: translateY(1px);
+  }
+  
+  .slider {
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .wrapper {
+      width: 90%;
+      height: auto;
+      min-height: 500px;
+    }
+    
+    .display {
+      width: 90%;
+    }
+    
+    .button-container {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
