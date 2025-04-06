@@ -9,17 +9,18 @@
 <body>
     <div class="wrapper">
         <div class="display">
-            <p>Password Generator</p>
+            <p id="screen">Password Generator</p>
+            <span class="popuptext" id="myPopup">27</span>
         </div>
         <div class="gen-container">
-            <button>Generator</button>
+            <button id="generate">Generator</button>
             <input id="range" class="slider" min="5" value="27.5" max="50" type="range">
         </div>
         <div class="button-container">
-            <button>Include Symbols</button>
-            <button>Include Numbers</button>
-            <button>Include Uppercase</button>
-            <button>Include Lowercase</button>
+            <button id="symbols">Include Symbols</button>
+            <button id="numbers">Include Numbers</button>
+            <button id="uppercase">Include Uppercase</button>
+            <button id="lowercase">Include Lowercase</button>
         </div>
     </div>
     <script src="interact.js"></script>
