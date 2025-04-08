@@ -10,17 +10,18 @@
     <div class="wrapper">
         <div class="display">
             <p id="screen">Password Generator</p>
-            <span class="passLength" id="myPassLen">27</span>
+            <i class="fa-regular fa-clipboard"></i>
         </div>
         <div class="gen-container">
             <button id="generate">Generate</button>
             <input id="range" class="slider" min="5" value="15" max="25" type="range">
+            <span class="passLength" id="myPassLen">15</span>
         </div>
         <div class="button-container">
-            <button id="symbols">Include Symbols</button>
-            <button id="numbers">Include Numbers</button>
-            <button id="uppercase">Include Uppercase</button>
-            <button id="lowercase">Include Lowercase</button>
+            <button id="sym">Add Symbols</button>
+            <button id="num">Add Numbers</button>
+            <button id="upper">Add Uppercase</button>
+            <button id="lower">Add Lowercase</button>
         </div>
     </div>
     <script src="interact.js"></script>
