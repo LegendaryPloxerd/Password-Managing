@@ -5,10 +5,12 @@ const lowerBtn = document.getElementById('lower');
 const genBtn = document.getElementById('generate');
 const slider = document.getElementById('range');
 const display = document.getElementById('screen');
+const clipboardBtn = document.getElementById('CB')
+const popUp = document.getElementById('myPopup')
 let password_length = document.getElementById("myPassLen");
   
 let types = {
-    num: "123456789",
+    num: "0123456789",
     lower: "abcdefghijklmnopqrstuvwxyz",
     upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     sym: "!@#£¤$%&/{[()]}=+?`¨^~*'-_.:,;<>|"
@@ -21,8 +23,9 @@ let states = {
     isUpper: false
 };
 
-function Generation() {
+let isPopupActive = false;
 
+function Generation() {
     let chars = "";
     if (states.isLower) chars += types.lower;
     if (states.isUpper) chars += types.upper;
@@ -35,8 +38,29 @@ function Generation() {
         password += chars[Math.floor(Math.random() * chars.length)];
     }
 
+    if (states.isNum && !/\d/.test(password)) {
+       password = checkup('num',password) 
+    }
+    if (states.isSym && !/\W/.test(password)) {
+        password = checkup('sym',password) 
+    }
+    if (states.isLower && !/[a-z]/.test(password)) {
+        password = checkup('lower',password) 
+    }
+    if (states.isUpper && !/[A-Z]/.test(password)) {
+        password = checkup('upper',password) 
+    }
+
+
     return display.textContent = password;
 };
+
+function checkup(key,pass) {
+    let randomPos = Math.floor(Math.random() * pass.length);
+    let randomKey = types[key][Math.floor(Math.random() * types[key].slice(0,key.length).length)];
+    pass = pass.substring(0, randomPos) + randomKey + pass.substring(randomPos + 1);
+    return pass
+}
 
 function stateHandling(button,key) {
     button.addEventListener("click", () => {
@@ -60,10 +84,22 @@ function GeneratePassword() {
     slider.addEventListener("input", () => {
         password_length.textContent = slider.value;
     })
+    clipboardBtn.addEventListener("click", () => {
+        if (!isPopupActive) {
+            isPopupActive = true;
+            popUp.style.opacity = "1";
+            navigator.clipboard.writeText(display.textContent);
+            setTimeout(() => {
+                popUp.style.opacity = "0";
+                isPopupActive = false;
+            }, 3000);
+        }
+    })
 }
 
 function init() {
     GeneratePassword();
     buttonHandling();
 }
+
 init();
